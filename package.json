@@ -26,7 +26,7 @@
     "monaco-editor-core": "0.12.0",
     "monaco-html": "2.1.0",
     "monaco-json": "2.1.0",
-    "monaco-languages": "1.2.0",
+    "monaco-languages": "git+https://git@github.com/alehander42/monaco-languages.git#nim",
     "monaco-typescript": "3.1.0",
     "rimraf": "^2.5.2",
     "typedoc": "^0.8.0",
