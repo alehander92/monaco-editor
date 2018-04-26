@@ -1,4 +1,4 @@
-define(["require", "exports"], function (require, exports) {
+define("vs/basic-languages/nim/nim", ["require", "exports"], function (require, exports) {
     'use strict';
     Object.defineProperty(exports, "__esModule", { value: true });
     // created with https://microsoft.github.io/monaco-editor/monarch.html
