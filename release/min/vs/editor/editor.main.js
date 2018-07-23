@@ -71573,7 +71573,7 @@
 							(t.prototype.getSupportedActions = function() {
 								var e = this.getActions();
 								return (e = e.filter(function(e) {
-									return e.isSupported();
+									return e.id.indexOf('ct.') != -1 && e.isSupported();
 								}));
 							}),
 							(t.prototype.getAction = function(e) {
