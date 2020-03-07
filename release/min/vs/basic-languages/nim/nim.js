@@ -61,7 +61,7 @@ define("vs/basic-languages/nim/nim", ["require", "exports"], function (require, 
             'when', 'while',
             'xor',
             'yield',
-            'echo',
+            'log',
         ],
         typeKeywords: [
             'bool', 'int', 'int8', 'int16', 'int32', 'int64', 'uint', 'uint8', 'uint16', 'uint32', 'uint64', 'string', 'cstring', 'seq', 'array'
