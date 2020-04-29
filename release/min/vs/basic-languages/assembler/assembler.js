@@ -40,12 +40,14 @@ define("vs/basic-languages/assembler/assembler", ["require", "exports"], functio
         // defaultToken: 'invalid',
         tokenPostfix: '.asm',
         keywords: ['mov','aaa', 'aad', 'aam', 'aas', 'adc', 'add', 'and', 'call',
-            'cbw', 'clc', 'cld', 'cli', 'cmc', 'cmp', 'cmpsb', 'cmpsw', 'cwd',
-            // todo next
-            'movsb', 'movsw', 'mul', 
+            'cbw', 'clc', 'cld', 'cli', 'cmc', 'cmp', 'cmpsb', 'cmpsw', 'cwd', 'callq', 'leaveq',
+            // todo next and others
+            'movsb', 'movsw', 'mul', 'movq', 'movw', 
+            'nop', 
             'je', 'ja', 'jae', 'jbe', 'jc', 'jg', 'jge', 'jl', 'jle', 'jna', 'jnae', 'jnb', 'jnbe', 'jce',
             'jne', 'jng', 'jnge', 'jnl', 'jnle', 'jno', 'jnz',
-            'push', 'pop', 'or', 'ret', 'retn', 'rol', 'ror', 'shl', 'shr', 'sub', 'xor'
+            'lea',
+            'push', 'pop', 'or', 'ret', 'retn', 'retq', 'rol', 'ror', 'shl', 'shr', 'sub', 'xor',
         ],
         typeKeywords: [
         ],
@@ -56,16 +58,22 @@ define("vs/basic-languages/assembler/assembler", ["require", "exports"], functio
             '%=', '<<=', '>>=', '>>>=', 'is', 'in', 'notin'
         ],
         // we include these common regular expressions
-        symbols: '', // ['eax', 'ebx', 'ecx', 'edx', 'rax', 'rbx', 'rcx', 'rdx'],
+        symbols: '', 
+        registers: ['eax', 'ebx', 'ecx', 'edx', 'rax', 'rbx', 'rcx', 'rdx'],
 
         // The main tokenizer for our languages
         tokenizer: {
             root: [
                 // identifiers and keywords
-                [/[a-z_$][\w$]*/, { cases: { 
+                [/[a-zA-Z_]\w*/, { cases: { 
                     // '@symbols': 'symbol',
                             '@keywords': 'keyword',
                             '@default': 'identifier'} }],
+                // registers
+                [/%[a-zA-Z]*/, {cases: {
+                    '@registers': 'keyword',
+                    '@default': 'identifier'}
+                        }],
                 // whitespace
                 { include: '@whitespace' },
                 // delimiters and operators

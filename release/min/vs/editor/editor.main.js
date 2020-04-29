@@ -123938,7 +123938,22 @@ define(
 	        	aliases: ['Nim', 'nim'],
     	    	loader: function () { return _monaco.Promise.wrap(new Promise(function (resolve_1, reject_1) { require(['./nim'], resolve_1, reject_1); })); }
     		});
-		});
+	}),
+	define(
+		"vs/basic-languages/assembler/assembler.contribution",
+		["require", "exports", "../_.contribution"],
+		function (require, exports, __contribution_1) {
+    		'use strict';
+    		Object.defineProperty(exports, "__esModule", { value: true });
+    		// Allow for running under nodejs/requirejs in tests
+    		var _monaco = (typeof monaco === 'undefined' ? self.monaco : monaco);
+    		__contribution_1.registerLanguage({
+				id: 'assembler',
+				extensions: ['asm', 's', 'S'],
+				aliases: ['assembler'],
+				loader: function () { return _monaco.Promise.wrap(new Promise(function (resolve_1, reject_1) { require(['./assembler'], resolve_1, reject_1); })); }
+			});
+	}),
 
 	define(
 		"vs/basic-languages/python/python.contribution",
