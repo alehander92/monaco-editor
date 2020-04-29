@@ -56,13 +56,14 @@ define("vs/basic-languages/assembler/assembler", ["require", "exports"], functio
             '%=', '<<=', '>>=', '>>>=', 'is', 'in', 'notin'
         ],
         // we include these common regular expressions
-        symbols: ['eax', 'ebx', 'ecx', 'edx', 'rax', 'rbx', 'rcx', 'rdx'],
+        symbols: '', // ['eax', 'ebx', 'ecx', 'edx', 'rax', 'rbx', 'rcx', 'rdx'],
 
         // The main tokenizer for our languages
         tokenizer: {
             root: [
                 // identifiers and keywords
-                [/[a-z_$][\w$]*/, { cases: { '@symbols': 'symbol',
+                [/[a-z_$][\w$]*/, { cases: { 
+                    // '@symbols': 'symbol',
                             '@keywords': 'keyword',
                             '@default': 'identifier'} }],
                 // whitespace
